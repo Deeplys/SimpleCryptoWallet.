@@ -1,0 +1,27 @@
+class SimCoinWallet:
+  def __init__(self, starting_balance=0):
+    self.balance = starting_balance
+
+  def get_balance(self):
+    return self.balance
+
+  def add_simcoins(self, amount):
+    self.balance += amount
+
+  def subtract_simcoins(self, amount):
+    if amount <= self.balance:
+      self.balance -= amount
+    else:
+      print("Insufficient SimCoins!")
+
+# Example usage
+my_wallet = SimCoinWallet(100)  # Start with 100 SimCoins
+print(f"Current balance: {my_wallet.get_balance()}")
+
+my_wallet.add_simcoins(50)
+print(f"Balance after adding 50: {my_wallet.get_balance()}")
+
+my_wallet.subtract_simcoins(75)
+print(f"Balance after subtracting 75: {my_wallet.get_balance()}")
+
+my_wallet.subtract_simcoins(100)  # Should print "Insufficient SimCoins!"
